@@ -1,0 +1,70 @@
+{
+  "data_source": "REAL",
+  "data_source_note": "REAL \u2014 WM-811K public dataset (Kaggle: qingyi/wm811k-wafer-map)",
+  "accuracy": 0.9034171464946037,
+  "macro_f1": 0.6998925471730117,
+  "val_samples": 34561,
+  "train_samples": 138240,
+  "classes": [
+    "Center",
+    "Donut",
+    "Edge-Loc",
+    "Edge-Ring",
+    "Loc",
+    "Random",
+    "Scratch",
+    "none"
+  ],
+  "per_class_report": {
+    "Center": {
+      "precision": 0.9205298013245033,
+      "recall": 0.8090803259604191,
+      "f1-score": 0.8612143742255266,
+      "support": 859.0
+    },
+    "Donut": {
+      "precision": 0.7154471544715447,
+      "recall": 0.7927927927927928,
+      "f1-score": 0.7521367521367521,
+      "support": 111.0
+    },
+    "Edge-Loc": {
+      "precision": 0.5060658578856152,
+      "recall": 0.8439306358381503,
+      "f1-score": 0.6327193932827736,
+      "support": 1038.0
+    },
+    "Edge-Ring": {
+      "precision": 0.9691583899634083,
+      "recall": 0.9576446280991735,
+      "f1-score": 0.9633671083398285,
+      "support": 1936.0
+    },
+    "Loc": {
+      "precision": 0.3055400111919418,
+      "recall": 0.7593880389429764,
+      "f1-score": 0.43575418994413406,
+      "support": 719.0
+    },
+    "Random": {
+      "precision": 0.6408163265306123,
+      "recall": 0.9075144508670521,
+      "f1-score": 0.7511961722488039,
+      "support": 173.0
+    },
+    "Scratch": {
+      "precision": 0.15778474399164055,
+      "recall": 0.634453781512605,
+      "f1-score": 0.25271966527196654,
+      "support": 238.0
+    },
+    "none": {
+      "precision": 0.9928280961182995,
+      "recall": 0.9107742394953708,
+      "f1-score": 0.9500327219343085,
+      "support": 29487.0
+    }
+  },
+  "training_epochs": 15,
+  "model_architecture": "CNN: Conv32\u2192BN\u2192Pool \u2192 Conv64\u2192BN\u2192Pool \u2192 Conv128\u2192GAP \u2192 Dense64\u2192Dropout\u2192Softmax"
+}

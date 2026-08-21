@@ -1,0 +1,18 @@
+{
+  "data_source": "REAL",
+  "data_source_note": "REAL \u2014 SECOM dataset from UCI ML Repository",
+  "accuracy": 0.8089171974522293,
+  "precision_fail": 0.19047619047619047,
+  "recall_fail": 0.5714285714285714,
+  "f1_fail": 0.2857142857142857,
+  "decision_threshold": 0.061,
+  "val_samples": 314,
+  "train_samples": 1253,
+  "n_features_total": 590,
+  "model": "GradientBoostingClassifier (n_estimators=300, max_depth=3, class-balanced sample weights)",
+  "imbalance_note": "Dataset is heavily skewed toward 'pass'. Decision threshold tuned to maximize F1 for 'fail' detection.",
+  "class_distribution": {
+    "pass": 1463,
+    "fail": 104
+  }
+}
