@@ -3,23 +3,41 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const BASE = import.meta.env.BASE_URL
 
-interface StepData {
+interface ResultsData {
+  data_source: string
+  method: string
+  n_iterations: number
+  best_found_yield: number
+  best_found_params: {
+    temperature: number
+    pressure: number
+    time: number
+  }
+  true_optimum_params: {
+    temperature: number
+    pressure: number
+    time: number
+  }
+  true_max_yield_no_noise: number
+  yield_gap: number
+}
+
+interface ConvergenceIteration {
   iteration: number
-  yield_pct: number
-  best_so_far: number
-  temp: number
+  yield: number
+  best_yield_so_far: number
+  temperature: number
   pressure: number
   time: number
 }
 
-interface OptimizationResults {
-  data_source: string
-  best_yield_pct: number
-  true_optimum_yield_pct: number
-  n_calls: number
-  recipe_found: { temp: number; pressure: number; time: number }
-  recipe_true: { temp: number; pressure: number; time: number }
-  convergence: StepData[]
+interface FormattedStep {
+  iteration: number
+  yield_pct: number
+  best_so_far_pct: number
+  temp: number
+  pressure: number
+  time: number
 }
 
 interface OptimizationTabProps {
@@ -27,24 +45,46 @@ interface OptimizationTabProps {
 }
 
 export default function OptimizationTab({ beginnerMode = true }: OptimizationTabProps) {
-  const [data, setData] = useState<OptimizationResults | null>(null)
+  const [results, setResults] = useState<ResultsData | null>(null)
+  const [steps, setSteps] = useState<FormattedStep[]>([])
   const [currentStep, setCurrentStep] = useState<number>(0)
 
   useEffect(() => {
-    fetch(`${BASE}exports/optimization/results.json`)
-      .then(r => r.json()).then(res => {
-        setData(res)
-        if (res.convergence) {
-          setCurrentStep(res.convergence.length - 1)
-        }
-      }).catch(() => {})
+    Promise.all([
+      fetch(`${BASE}exports/optimization/results.json`).then(r => r.json()),
+      fetch(`${BASE}exports/optimization/convergence.json`).then(r => r.json())
+    ]).then(([resData, convData]) => {
+      setResults(resData)
+      if (convData && convData.iterations) {
+        const formatted: FormattedStep[] = convData.iterations.map((item: ConvergenceIteration) => ({
+          iteration: item.iteration,
+          yield_pct: item.yield * 100,
+          best_so_far_pct: item.best_yield_so_far * 100,
+          temp: item.temperature,
+          pressure: item.pressure,
+          time: item.time
+        }))
+        setSteps(formatted)
+        setCurrentStep(formatted.length - 1)
+      }
+    }).catch(err => {
+      console.error('Failed to load optimization data:', err)
+    })
   }, [])
 
-  if (!data) {
-    return <div className="empty-state"><div className="spinner" /><p style={{marginTop:16}}>Loading optimization convergence data...</p></div>
+  if (!results || steps.length === 0) {
+    return (
+      <div className="empty-state">
+        <div className="spinner" />
+        <p style={{ marginTop: 16 }}>Loading optimization convergence data...</p>
+      </div>
+    )
   }
 
-  const activeStepData = data.convergence[currentStep] || data.convergence[0]
+  const activeStepData = steps[currentStep] || steps[0]
+  const bestFoundPct = (results.best_found_yield * 100).toFixed(1)
+  const trueMaxPct = (results.true_max_yield_no_noise * 100).toFixed(1)
+  const gapPct = (Math.abs(results.yield_gap) * 100).toFixed(2)
 
   return (
     <div>
@@ -58,8 +98,8 @@ export default function OptimizationTab({ beginnerMode = true }: OptimizationTab
       </div>
 
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 20 }}>
-        <span className={`data-badge ${data.data_source === 'REAL' ? 'real' : 'synthetic'}`}>
-          {data.data_source === 'REAL' ? 'Real Fab Optimization Run' : 'Synthetic Fab Surface Model'}
+        <span className={`data-badge ${results.data_source === 'REAL' ? 'real' : 'synthetic'}`}>
+          {results.data_source === 'REAL' ? 'Real Fab Optimization Run' : 'Synthetic Fab Surface Model'}
         </span>
         {beginnerMode && (
           <span style={{ fontSize: 12, background: 'rgba(79, 70, 229, 0.1)', color: 'var(--accent-indigo)', padding: '4px 10px', borderRadius: '12px', fontWeight: 600 }}>
@@ -71,22 +111,22 @@ export default function OptimizationTab({ beginnerMode = true }: OptimizationTab
       <div className="metrics-grid">
         <div className="metric-card">
           <div className="metric-label">{beginnerMode ? "Best AI Yield Score" : "Achieved Yield"}</div>
-          <div className="metric-value accent-teal">{data.best_yield_pct.toFixed(1)}%</div>
+          <div className="metric-value accent-teal">{bestFoundPct}%</div>
           <div className="metric-sub">{beginnerMode ? "🌟 Letter Grade: A+ (Optimal)" : "Found Optimum"}</div>
         </div>
         <div className="metric-card">
           <div className="metric-label">{beginnerMode ? "Theoretical Maximum" : "True Maximum"}</div>
-          <div className="metric-value accent-blue">{data.true_optimum_yield_pct.toFixed(1)}%</div>
+          <div className="metric-value accent-blue">{trueMaxPct}%</div>
           <div className="metric-sub">Theoretical Limit</div>
         </div>
         <div className="metric-card">
           <div className="metric-label">{beginnerMode ? "Yield Gap to Perfection" : "Yield Gap"}</div>
-          <div className="metric-value accent-amber">{(data.true_optimum_yield_pct - data.best_yield_pct).toFixed(2)}%</div>
+          <div className="metric-value accent-amber">{gapPct}%</div>
           <div className="metric-sub">Optimality Offset</div>
         </div>
         <div className="metric-card">
           <div className="metric-label">{beginnerMode ? "Trial Runs Needed" : "Evaluations"}</div>
-          <div className="metric-value">{data.n_calls}</div>
+          <div className="metric-value">{results.n_iterations}</div>
           <div className="metric-sub">Iterations</div>
         </div>
       </div>
@@ -96,7 +136,7 @@ export default function OptimizationTab({ beginnerMode = true }: OptimizationTab
           <div className="card-title" style={{ color: 'var(--accent-indigo)' }}>💡 What is Recipe Optimization? (Baking Analogy)</div>
           <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
             Imagine baking a cake. If you don't know the exact oven temperature or baking time, you could waste 1,000 cakes trying combinations. 
-            <strong>Bayesian AI</strong> acts like a master chef: after just 5 test cakes, it predicts the exact temperature & pressure recipe to bake a perfect 97.6% yield cake!
+            <strong>Bayesian AI</strong> acts like a master chef: after just 5 test cakes, it predicts the exact temperature & pressure recipe to bake a perfect 98.3% yield cake!
           </p>
         </div>
       ) : (
@@ -111,7 +151,7 @@ export default function OptimizationTab({ beginnerMode = true }: OptimizationTab
       {/* Interactive Step Stepper Controls */}
       <div className="interactive-section">
         <div className="interactive-title">
-          <span>🎬 Interactive Search Step-by-Step Stepper (Step {currentStep + 1} of {data.convergence.length})</span>
+          <span>🎬 Interactive Search Step-by-Step Stepper (Step {currentStep + 1} of {steps.length})</span>
         </div>
         <p style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>
           Use the stepper buttons to travel through time and watch the AI explore different recipe temperatures & pressures!
@@ -127,33 +167,33 @@ export default function OptimizationTab({ beginnerMode = true }: OptimizationTab
           </button>
           <button
             className="btn btn-primary"
-            disabled={currentStep >= data.convergence.length - 1}
-            onClick={() => setCurrentStep(prev => Math.min(data.convergence.length - 1, prev + 1))}
+            disabled={currentStep >= steps.length - 1}
+            onClick={() => setCurrentStep(prev => Math.min(steps.length - 1, prev + 1))}
           >
             Next Step →
           </button>
           <button
             className="btn btn-outline"
-            onClick={() => setCurrentStep(data.convergence.length - 1)}
+            onClick={() => setCurrentStep(steps.length - 1)}
           >
-            Jump to Final Winner (Step 30)
+            Jump to Final Winner (Step {steps.length})
           </button>
 
           <span style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 700, color: 'var(--accent-indigo)' }}>
-            Step {currentStep + 1} Yield: <strong>{activeStepData.best_so_far.toFixed(1)}%</strong>
+            Step {currentStep + 1} Best Yield: <strong>{activeStepData.best_so_far_pct.toFixed(1)}%</strong>
           </span>
         </div>
 
         {/* Recharts Yield Convergence Chart */}
         <div style={{ height: 280, width: '100%' }}>
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data.convergence}>
+            <LineChart data={steps}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
               <XAxis dataKey="iteration" label={{ value: 'Trial Run #', position: 'insideBottom', offset: -5 }} />
-              <YAxis domain={[60, 100]} label={{ value: 'Yield %', angle: -90, position: 'insideLeft' }} />
+              <YAxis domain={[0, 100]} label={{ value: 'Yield %', angle: -90, position: 'insideLeft' }} />
               <Tooltip formatter={(val: any) => [`${Number(val).toFixed(2)}%`, 'Yield']} />
               <Line type="monotone" dataKey="yield_pct" stroke="#94a3b8" strokeWidth={1} dot={{ r: 2 }} name="Trial Evaluation" />
-              <Line type="stepAfter" dataKey="best_so_far" stroke="#4f46e5" strokeWidth={3} dot={{ r: 4 }} name="Best AI Yield So Far" />
+              <Line type="stepAfter" dataKey="best_so_far_pct" stroke="#4f46e5" strokeWidth={3} dot={{ r: 4 }} name="Best AI Yield So Far" />
             </LineChart>
           </ResponsiveContainer>
         </div>
