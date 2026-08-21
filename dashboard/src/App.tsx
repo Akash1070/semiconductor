@@ -28,48 +28,28 @@ export default function App() {
           <button 
             onClick={() => setBeginnerMode(!beginnerMode)}
             style={{
-              background: beginnerMode ? 'var(--accent-teal)' : 'var(--bg-surface)',
-              color: beginnerMode ? '#000' : 'var(--text-primary)',
-              border: '1px solid var(--border)',
-              borderRadius: '16px',
-              padding: '4px 12px',
+              background: beginnerMode ? 'linear-gradient(135deg, #4f46e5, #0891b2)' : '#ffffff',
+              color: beginnerMode ? '#ffffff' : '#475569',
+              border: beginnerMode ? 'none' : '1px solid #cbd5e1',
+              borderRadius: '20px',
+              padding: '6px 16px',
               fontSize: '12px',
-              fontWeight: 600,
+              fontWeight: 700,
               cursor: 'pointer',
+              boxShadow: beginnerMode ? '0 4px 12px rgba(79, 70, 229, 0.3)' : 'none',
               transition: 'all 0.2s ease'
             }}
           >
-            {beginnerMode ? '🐣 Beginner Mode: ON' : '⚙️ Pro Mode'}
+            {beginnerMode ? '🐣 10th-Standard View: ON' : '⚙️ Pro Mode View'}
           </button>
-          <span>·</span>
-          <span>by Akash Kumar Jha</span>
-          <span>·</span>
+          <span style={{ color: '#cbd5e1' }}>|</span>
+          <span style={{ fontWeight: 600, color: '#334155' }}>by Akash Kumar Jha</span>
+          <span style={{ color: '#cbd5e1' }}>|</span>
           <a href="https://github.com/Akash1070/semiconductor" target="_blank" rel="noreferrer">
             GitHub ↗
           </a>
         </div>
       </header>
-
-      {beginnerMode && (
-        <div style={{
-          background: 'rgba(0, 229, 255, 0.08)',
-          border: '1px solid var(--accent-blue)',
-          borderRadius: '8px',
-          padding: '12px 16px',
-          marginBottom: '16px',
-          fontSize: '13px',
-          lineHeight: '1.6',
-          color: 'var(--text-primary)'
-        }}>
-          <strong>🐣 Simple Explanation for Everyone (10th Standard Friendly):</strong> Microchips (like the ones inside your phone or computer) are built on big round shiny silicon plates called <strong>Wafers</strong>. Making chips takes hundreds of complex steps! This dashboard uses AI to:
-          <ul style={{ margin: '6px 0 0 18px', padding: 0 }}>
-            <li><strong>Wafer Classifier:</strong> Scan the wafer surface to spot bad defect patterns (like scratches or edge rings).</li>
-            <li><strong>Yield Prediction:</strong> Predict if microchips will PASS or FAIL before wasting time testing them.</li>
-            <li><strong>Overlay Detection:</strong> Make sure microscopic circuit layers line up perfectly like stacking tracing paper.</li>
-            <li><strong>Process Optimization:</strong> Automatically find the best temperature & pressure recipe to make maximum working chips!</li>
-          </ul>
-        </div>
-      )}
 
       <nav className="tab-nav" role="tablist">
         {TABS.map(tab => (
@@ -87,10 +67,10 @@ export default function App() {
       </nav>
 
       <main className="main">
-        {activeTab === 'wafer'   && <WaferTab />}
-        {activeTab === 'yield'   && <YieldTab />}
-        {activeTab === 'overlay' && <OverlayTab />}
-        {activeTab === 'optim'   && <OptimizationTab />}
+        {activeTab === 'wafer'   && <WaferTab beginnerMode={beginnerMode} />}
+        {activeTab === 'yield'   && <YieldTab beginnerMode={beginnerMode} />}
+        {activeTab === 'overlay' && <OverlayTab beginnerMode={beginnerMode} />}
+        {activeTab === 'optim'   && <OptimizationTab beginnerMode={beginnerMode} />}
         {activeTab === 'notes'   && <NotesTab />}
       </main>
     </div>
