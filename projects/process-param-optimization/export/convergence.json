@@ -1,0 +1,806 @@
+{
+  "data_source": "SYNTHETIC",
+  "method": "Bayesian Optimization (scikit-optimize gp_minimize, RBF kernel)",
+  "iterations": [
+    {
+      "iteration": 1,
+      "yield": 0.1015,
+      "best_yield_so_far": 0.1015,
+      "temperature": 391.52,
+      "pressure": 3.284,
+      "time": 169.16
+    },
+    {
+      "iteration": 2,
+      "yield": 0.2738,
+      "best_yield_so_far": 0.2738,
+      "temperature": 363.56,
+      "pressure": 5.121,
+      "time": 74.0
+    },
+    {
+      "iteration": 3,
+      "yield": 0.3651,
+      "best_yield_so_far": 0.3651,
+      "temperature": 344.29,
+      "pressure": 4.336,
+      "time": 80.0
+    },
+    {
+      "iteration": 4,
+      "yield": 0.1515,
+      "best_yield_so_far": 0.3651,
+      "temperature": 371.12,
+      "pressure": 2.395,
+      "time": 161.08
+    },
+    {
+      "iteration": 5,
+      "yield": 0.0,
+      "best_yield_so_far": 0.3651,
+      "temperature": 411.4,
+      "pressure": 2.005,
+      "time": 198.91
+    },
+    {
+      "iteration": 6,
+      "yield": 0.0932,
+      "best_yield_so_far": 0.3651,
+      "temperature": 366.45,
+      "pressure": 6.282,
+      "time": 60.99
+    },
+    {
+      "iteration": 7,
+      "yield": 0.2589,
+      "best_yield_so_far": 0.3651,
+      "temperature": 283.23,
+      "pressure": 5.673,
+      "time": 115.98
+    },
+    {
+      "iteration": 8,
+      "yield": 0.05,
+      "best_yield_so_far": 0.3651,
+      "temperature": 286.53,
+      "pressure": 8.816,
+      "time": 92.59
+    },
+    {
+      "iteration": 9,
+      "yield": 0.2742,
+      "best_yield_so_far": 0.3651,
+      "temperature": 292.68,
+      "pressure": 6.329,
+      "time": 113.54
+    },
+    {
+      "iteration": 10,
+      "yield": 0.038,
+      "best_yield_so_far": 0.3651,
+      "temperature": 417.65,
+      "pressure": 5.267,
+      "time": 180.39
+    },
+    {
+      "iteration": 11,
+      "yield": 0.0898,
+      "best_yield_so_far": 0.3651,
+      "temperature": 367.07,
+      "pressure": 2.0,
+      "time": 79.98
+    },
+    {
+      "iteration": 12,
+      "yield": 0.7546,
+      "best_yield_so_far": 0.7546,
+      "temperature": 332.66,
+      "pressure": 4.463,
+      "time": 130.06
+    },
+    {
+      "iteration": 13,
+      "yield": 0.8203,
+      "best_yield_so_far": 0.8203,
+      "temperature": 334.33,
+      "pressure": 4.82,
+      "time": 130.21
+    },
+    {
+      "iteration": 14,
+      "yield": 0.7975,
+      "best_yield_so_far": 0.8203,
+      "temperature": 337.49,
+      "pressure": 5.309,
+      "time": 131.82
+    },
+    {
+      "iteration": 15,
+      "yield": 0.6552,
+      "best_yield_so_far": 0.8203,
+      "temperature": 332.18,
+      "pressure": 5.26,
+      "time": 139.93
+    },
+    {
+      "iteration": 16,
+      "yield": 0.7856,
+      "best_yield_so_far": 0.8203,
+      "temperature": 358.59,
+      "pressure": 6.277,
+      "time": 119.12
+    },
+    {
+      "iteration": 17,
+      "yield": 0.8984,
+      "best_yield_so_far": 0.8984,
+      "temperature": 343.99,
+      "pressure": 5.442,
+      "time": 125.2
+    },
+    {
+      "iteration": 18,
+      "yield": 0.9449,
+      "best_yield_so_far": 0.9449,
+      "temperature": 348.68,
+      "pressure": 4.902,
+      "time": 119.1
+    },
+    {
+      "iteration": 19,
+      "yield": 0.8682,
+      "best_yield_so_far": 0.9449,
+      "temperature": 363.48,
+      "pressure": 4.921,
+      "time": 122.26
+    },
+    {
+      "iteration": 20,
+      "yield": 0.0,
+      "best_yield_so_far": 0.9449,
+      "temperature": 280.0,
+      "pressure": 9.0,
+      "time": 200.0
+    },
+    {
+      "iteration": 21,
+      "yield": 0.9633,
+      "best_yield_so_far": 0.9633,
+      "temperature": 346.78,
+      "pressure": 5.121,
+      "time": 115.16
+    },
+    {
+      "iteration": 22,
+      "yield": 0.9303,
+      "best_yield_so_far": 0.9633,
+      "temperature": 347.57,
+      "pressure": 5.239,
+      "time": 114.97
+    },
+    {
+      "iteration": 23,
+      "yield": 0.9048,
+      "best_yield_so_far": 0.9633,
+      "temperature": 345.58,
+      "pressure": 4.726,
+      "time": 114.62
+    },
+    {
+      "iteration": 24,
+      "yield": 0.9189,
+      "best_yield_so_far": 0.9633,
+      "temperature": 349.97,
+      "pressure": 5.209,
+      "time": 117.76
+    },
+    {
+      "iteration": 25,
+      "yield": 0.0,
+      "best_yield_so_far": 0.9633,
+      "temperature": 420.0,
+      "pressure": 9.0,
+      "time": 111.64
+    },
+    {
+      "iteration": 26,
+      "yield": 0.0039,
+      "best_yield_so_far": 0.9633,
+      "temperature": 280.0,
+      "pressure": 2.0,
+      "time": 200.0
+    },
+    {
+      "iteration": 27,
+      "yield": 0.9145,
+      "best_yield_so_far": 0.9633,
+      "temperature": 344.95,
+      "pressure": 5.204,
+      "time": 116.92
+    },
+    {
+      "iteration": 28,
+      "yield": 0.9525,
+      "best_yield_so_far": 0.9633,
+      "temperature": 350.08,
+      "pressure": 4.999,
+      "time": 119.3
+    },
+    {
+      "iteration": 29,
+      "yield": 0.9318,
+      "best_yield_so_far": 0.9633,
+      "temperature": 350.16,
+      "pressure": 4.973,
+      "time": 119.71
+    },
+    {
+      "iteration": 30,
+      "yield": 0.9402,
+      "best_yield_so_far": 0.9633,
+      "temperature": 350.21,
+      "pressure": 5.039,
+      "time": 118.75
+    },
+    {
+      "iteration": 31,
+      "yield": 0.9304,
+      "best_yield_so_far": 0.9633,
+      "temperature": 351.25,
+      "pressure": 5.069,
+      "time": 116.89
+    },
+    {
+      "iteration": 32,
+      "yield": 0.9835,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.11,
+      "pressure": 5.033,
+      "time": 119.83
+    },
+    {
+      "iteration": 33,
+      "yield": 0.9404,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.79,
+      "pressure": 4.928,
+      "time": 121.08
+    },
+    {
+      "iteration": 34,
+      "yield": 0.922,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.66,
+      "pressure": 4.968,
+      "time": 120.87
+    },
+    {
+      "iteration": 35,
+      "yield": 0.9646,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.22,
+      "pressure": 5.087,
+      "time": 119.41
+    },
+    {
+      "iteration": 36,
+      "yield": 0.9244,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.39,
+      "pressure": 5.106,
+      "time": 119.73
+    },
+    {
+      "iteration": 37,
+      "yield": 0.9413,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.92,
+      "pressure": 4.893,
+      "time": 118.15
+    },
+    {
+      "iteration": 38,
+      "yield": 0.9088,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.91,
+      "pressure": 5.1,
+      "time": 119.01
+    },
+    {
+      "iteration": 39,
+      "yield": 0.9018,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.23,
+      "pressure": 4.795,
+      "time": 117.85
+    },
+    {
+      "iteration": 40,
+      "yield": 0.9497,
+      "best_yield_so_far": 0.9835,
+      "temperature": 347.41,
+      "pressure": 5.198,
+      "time": 117.95
+    },
+    {
+      "iteration": 41,
+      "yield": 0.9598,
+      "best_yield_so_far": 0.9835,
+      "temperature": 347.11,
+      "pressure": 5.205,
+      "time": 117.81
+    },
+    {
+      "iteration": 42,
+      "yield": 0.9457,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.22,
+      "pressure": 5.218,
+      "time": 117.43
+    },
+    {
+      "iteration": 43,
+      "yield": 0.94,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.2,
+      "pressure": 5.217,
+      "time": 117.47
+    },
+    {
+      "iteration": 44,
+      "yield": 0.9403,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.21,
+      "pressure": 5.233,
+      "time": 117.47
+    },
+    {
+      "iteration": 45,
+      "yield": 0.9126,
+      "best_yield_so_far": 0.9835,
+      "temperature": 345.77,
+      "pressure": 5.186,
+      "time": 117.84
+    },
+    {
+      "iteration": 46,
+      "yield": 0.9323,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.92,
+      "pressure": 5.2,
+      "time": 117.6
+    },
+    {
+      "iteration": 47,
+      "yield": 0.9406,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.62,
+      "pressure": 5.171,
+      "time": 119.93
+    },
+    {
+      "iteration": 48,
+      "yield": 0.971,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.56,
+      "pressure": 5.17,
+      "time": 119.84
+    },
+    {
+      "iteration": 49,
+      "yield": 0.9567,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.05,
+      "pressure": 5.182,
+      "time": 120.42
+    },
+    {
+      "iteration": 50,
+      "yield": 0.9144,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.28,
+      "pressure": 5.186,
+      "time": 120.73
+    },
+    {
+      "iteration": 51,
+      "yield": 0.9527,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.67,
+      "pressure": 5.196,
+      "time": 117.36
+    },
+    {
+      "iteration": 52,
+      "yield": 0.9372,
+      "best_yield_so_far": 0.9835,
+      "temperature": 351.04,
+      "pressure": 5.2,
+      "time": 117.0
+    },
+    {
+      "iteration": 53,
+      "yield": 0.9334,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.61,
+      "pressure": 5.201,
+      "time": 117.61
+    },
+    {
+      "iteration": 54,
+      "yield": 0.9619,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.17,
+      "pressure": 5.165,
+      "time": 119.92
+    },
+    {
+      "iteration": 55,
+      "yield": 0.9704,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.47,
+      "pressure": 5.169,
+      "time": 120.3
+    },
+    {
+      "iteration": 56,
+      "yield": 0.9682,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.89,
+      "pressure": 5.174,
+      "time": 120.85
+    },
+    {
+      "iteration": 57,
+      "yield": 0.9321,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.29,
+      "pressure": 5.178,
+      "time": 121.39
+    },
+    {
+      "iteration": 58,
+      "yield": 0.9433,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.94,
+      "pressure": 5.176,
+      "time": 120.93
+    },
+    {
+      "iteration": 59,
+      "yield": 0.9562,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.86,
+      "pressure": 5.176,
+      "time": 120.84
+    },
+    {
+      "iteration": 60,
+      "yield": 0.9689,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.02,
+      "pressure": 5.177,
+      "time": 121.05
+    },
+    {
+      "iteration": 61,
+      "yield": 0.939,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.4,
+      "pressure": 5.179,
+      "time": 121.56
+    },
+    {
+      "iteration": 62,
+      "yield": 0.9453,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.2,
+      "pressure": 5.178,
+      "time": 121.3
+    },
+    {
+      "iteration": 63,
+      "yield": 0.927,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.14,
+      "pressure": 5.178,
+      "time": 121.23
+    },
+    {
+      "iteration": 64,
+      "yield": 0.9258,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.63,
+      "pressure": 5.179,
+      "time": 120.65
+    },
+    {
+      "iteration": 65,
+      "yield": 0.9651,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.13,
+      "pressure": 5.169,
+      "time": 119.87
+    },
+    {
+      "iteration": 66,
+      "yield": 0.9751,
+      "best_yield_so_far": 0.9835,
+      "temperature": 347.5,
+      "pressure": 5.168,
+      "time": 119.75
+    },
+    {
+      "iteration": 67,
+      "yield": 0.9451,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.67,
+      "pressure": 5.17,
+      "time": 119.56
+    },
+    {
+      "iteration": 68,
+      "yield": 0.9668,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.81,
+      "pressure": 5.168,
+      "time": 119.61
+    },
+    {
+      "iteration": 69,
+      "yield": 0.9527,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.22,
+      "pressure": 5.169,
+      "time": 119.47
+    },
+    {
+      "iteration": 70,
+      "yield": 0.9323,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.09,
+      "pressure": 5.168,
+      "time": 119.46
+    },
+    {
+      "iteration": 71,
+      "yield": 0.954,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.8,
+      "pressure": 5.168,
+      "time": 119.68
+    },
+    {
+      "iteration": 72,
+      "yield": 0.9772,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.62,
+      "pressure": 5.166,
+      "time": 119.64
+    },
+    {
+      "iteration": 73,
+      "yield": 0.9438,
+      "best_yield_so_far": 0.9835,
+      "temperature": 345.81,
+      "pressure": 5.167,
+      "time": 119.43
+    },
+    {
+      "iteration": 74,
+      "yield": 0.9763,
+      "best_yield_so_far": 0.9835,
+      "temperature": 346.03,
+      "pressure": 5.166,
+      "time": 119.51
+    },
+    {
+      "iteration": 75,
+      "yield": 0.8904,
+      "best_yield_so_far": 0.9835,
+      "temperature": 345.22,
+      "pressure": 5.167,
+      "time": 119.3
+    },
+    {
+      "iteration": 76,
+      "yield": 0.9658,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.47,
+      "pressure": 5.175,
+      "time": 120.99
+    },
+    {
+      "iteration": 77,
+      "yield": 0.9507,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.65,
+      "pressure": 5.171,
+      "time": 121.3
+    },
+    {
+      "iteration": 78,
+      "yield": 0.9429,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.64,
+      "pressure": 5.17,
+      "time": 121.33
+    },
+    {
+      "iteration": 79,
+      "yield": 0.951,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.56,
+      "pressure": 5.173,
+      "time": 121.18
+    },
+    {
+      "iteration": 80,
+      "yield": 0.9093,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.56,
+      "pressure": 5.171,
+      "time": 121.21
+    },
+    {
+      "iteration": 81,
+      "yield": 0.9446,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.03,
+      "pressure": 5.245,
+      "time": 119.07
+    },
+    {
+      "iteration": 82,
+      "yield": 0.9563,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.97,
+      "pressure": 5.239,
+      "time": 119.16
+    },
+    {
+      "iteration": 83,
+      "yield": 0.9786,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.09,
+      "pressure": 5.245,
+      "time": 119.08
+    },
+    {
+      "iteration": 84,
+      "yield": 0.9382,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.4,
+      "pressure": 5.267,
+      "time": 118.75
+    },
+    {
+      "iteration": 85,
+      "yield": 0.9327,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.2,
+      "pressure": 5.258,
+      "time": 118.94
+    },
+    {
+      "iteration": 86,
+      "yield": 0.9388,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.48,
+      "pressure": 5.238,
+      "time": 119.28
+    },
+    {
+      "iteration": 87,
+      "yield": 0.967,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.38,
+      "pressure": 5.143,
+      "time": 120.49
+    },
+    {
+      "iteration": 88,
+      "yield": 0.955,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.49,
+      "pressure": 5.13,
+      "time": 120.76
+    },
+    {
+      "iteration": 89,
+      "yield": 0.9377,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.52,
+      "pressure": 5.126,
+      "time": 120.84
+    },
+    {
+      "iteration": 90,
+      "yield": 0.9587,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.19,
+      "pressure": 5.135,
+      "time": 120.53
+    },
+    {
+      "iteration": 91,
+      "yield": 0.9502,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.25,
+      "pressure": 5.127,
+      "time": 120.67
+    },
+    {
+      "iteration": 92,
+      "yield": 0.9676,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.21,
+      "pressure": 5.127,
+      "time": 120.65
+    },
+    {
+      "iteration": 93,
+      "yield": 0.9338,
+      "best_yield_so_far": 0.9835,
+      "temperature": 348.33,
+      "pressure": 5.115,
+      "time": 120.91
+    },
+    {
+      "iteration": 94,
+      "yield": 0.9406,
+      "best_yield_so_far": 0.9835,
+      "temperature": 347.11,
+      "pressure": 5.147,
+      "time": 119.92
+    },
+    {
+      "iteration": 95,
+      "yield": 0.9413,
+      "best_yield_so_far": 0.9835,
+      "temperature": 349.04,
+      "pressure": 5.158,
+      "time": 120.8
+    },
+    {
+      "iteration": 96,
+      "yield": 0.918,
+      "best_yield_so_far": 0.9835,
+      "temperature": 347.1,
+      "pressure": 5.164,
+      "time": 119.67
+    },
+    {
+      "iteration": 97,
+      "yield": 0.9558,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.17,
+      "pressure": 5.218,
+      "time": 119.75
+    },
+    {
+      "iteration": 98,
+      "yield": 0.9551,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.28,
+      "pressure": 5.222,
+      "time": 119.68
+    },
+    {
+      "iteration": 99,
+      "yield": 0.9499,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.37,
+      "pressure": 5.226,
+      "time": 119.62
+    },
+    {
+      "iteration": 100,
+      "yield": 0.9451,
+      "best_yield_so_far": 0.9835,
+      "temperature": 350.37,
+      "pressure": 5.226,
+      "time": 119.63
+    }
+  ]
+}

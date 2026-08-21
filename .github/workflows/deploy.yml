@@ -1,0 +1,68 @@
+name: Deploy Dashboard to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: dashboard/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: dashboard
+
+      - name: Copy ML export files to dashboard public
+        run: |
+          mkdir -p dashboard/public/exports/wafer/samples
+          mkdir -p dashboard/public/exports/wafer/tfjs_model
+          mkdir -p dashboard/public/exports/yield
+          mkdir -p dashboard/public/exports/overlay/samples
+          mkdir -p dashboard/public/exports/optimization
+
+          # Wafer classifier
+          cp projects/wafer-defect-classifier/export/metrics.json dashboard/public/exports/wafer/ || true
+          cp projects/wafer-defect-classifier/export/sample_manifest.json dashboard/public/exports/wafer/ || true
+          cp projects/wafer-defect-classifier/export/samples/*.png dashboard/public/exports/wafer/samples/ || true
+          cp projects/wafer-defect-classifier/export/tfjs_model/* dashboard/public/exports/wafer/tfjs_model/ || true
+
+          # Yield prediction
+          cp projects/yield-prediction-secom/export/metrics.json dashboard/public/exports/yield/ || true
+          cp projects/yield-prediction-secom/export/feature_importance.json dashboard/public/exports/yield/ || true
+          cp projects/yield-prediction-secom/export/lookup_table.json dashboard/public/exports/yield/ || true
+
+          # Overlay detection
+          cp projects/overlay-error-detection/export/results.json dashboard/public/exports/overlay/ || true
+          cp projects/overlay-error-detection/export/samples/*.png dashboard/public/exports/overlay/samples/ || true
+
+          # Process optimization
+          cp projects/process-param-optimization/export/convergence.json dashboard/public/exports/optimization/ || true
+          cp projects/process-param-optimization/export/results.json dashboard/public/exports/optimization/ || true
+
+          # Fab notes
+          cp notes/fab-floor-notes.md dashboard/public/exports/ || true
+
+      - name: Build dashboard
+        run: npm run build
+        working-directory: dashboard
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dashboard/dist
+          force_orphan: true

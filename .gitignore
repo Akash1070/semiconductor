@@ -1,0 +1,59 @@
+# Gitignore for Semiconductor AI Portfolio
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+*.pyo
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Data files (large, not in repo) ---
+projects/wafer-defect-classifier/data/LSWMD.pkl
+projects/yield-prediction-secom/data/secom.data
+projects/yield-prediction-secom/data/secom_labels.data
+
+# Keep the WM-811K and SECOM folders at root (they're copies for dev convenience)
+WM-811K/
+SECOM/
+
+# --- Processed/intermediate ML artifacts ---
+projects/wafer-defect-classifier/processed/
+*.npy
+*.h5
+
+# --- Node / Dashboard ---
+node_modules/
+dashboard/node_modules/
+dashboard/dist/
+dashboard/.vite/
+.env
+.env.local
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+*.ipynb
+
+# NOTE: export/ folders ARE committed — they contain the model outputs
+# that the dashboard reads from. Do NOT gitignore them.
