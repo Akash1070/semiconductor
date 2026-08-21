@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
           cache-dependency-path: dashboard/package-lock.json
 
@@ -71,7 +71,7 @@ jobs:
         with:
           path: dashboard/dist
 
-      - name: Deploy to gh-pages branch (Fallback)
+      - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -84,6 +84,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build-and-deploy
+    continue-on-error: true
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
