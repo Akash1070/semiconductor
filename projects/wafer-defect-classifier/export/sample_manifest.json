@@ -1,0 +1,125 @@
+{
+  "samples": [
+    {
+      "filename": "sample_00_Center.png",
+      "true_label": "Center",
+      "pred_label": "Center",
+      "pred_prob": 1.0
+    },
+    {
+      "filename": "sample_01_Donut.png",
+      "true_label": "Donut",
+      "pred_label": "Donut",
+      "pred_prob": 1.0
+    },
+    {
+      "filename": "sample_02_Edge-Loc.png",
+      "true_label": "Edge-Loc",
+      "pred_label": "Edge-Loc",
+      "pred_prob": 0.8613
+    },
+    {
+      "filename": "sample_03_Edge-Ring.png",
+      "true_label": "Edge-Ring",
+      "pred_label": "Edge-Ring",
+      "pred_prob": 0.9997
+    },
+    {
+      "filename": "sample_04_Loc.png",
+      "true_label": "Loc",
+      "pred_label": "Loc",
+      "pred_prob": 0.5136
+    },
+    {
+      "filename": "sample_05_Random.png",
+      "true_label": "Random",
+      "pred_label": "Random",
+      "pred_prob": 0.9977
+    },
+    {
+      "filename": "sample_06_Scratch.png",
+      "true_label": "Scratch",
+      "pred_label": "Scratch",
+      "pred_prob": 0.8774
+    },
+    {
+      "filename": "sample_07_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.9921
+    },
+    {
+      "filename": "sample_08_Edge-Ring.png",
+      "true_label": "Edge-Ring",
+      "pred_label": "Edge-Ring",
+      "pred_prob": 1.0
+    },
+    {
+      "filename": "sample_09_Edge-Ring.png",
+      "true_label": "Edge-Ring",
+      "pred_label": "Edge-Ring",
+      "pred_prob": 0.9869
+    },
+    {
+      "filename": "sample_10_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.4758
+    },
+    {
+      "filename": "sample_11_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.5284
+    },
+    {
+      "filename": "sample_12_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.9939
+    },
+    {
+      "filename": "sample_13_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.6071
+    },
+    {
+      "filename": "sample_14_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.9993
+    },
+    {
+      "filename": "sample_15_Edge-Loc.png",
+      "true_label": "Edge-Loc",
+      "pred_label": "Edge-Loc",
+      "pred_prob": 0.9826
+    },
+    {
+      "filename": "sample_16_Random.png",
+      "true_label": "Random",
+      "pred_label": "Random",
+      "pred_prob": 0.9988
+    },
+    {
+      "filename": "sample_17_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 1.0
+    },
+    {
+      "filename": "sample_18_none.png",
+      "true_label": "none",
+      "pred_label": "none",
+      "pred_prob": 0.983
+    },
+    {
+      "filename": "sample_19_none.png",
+      "true_label": "none",
+      "pred_label": "Loc",
+      "pred_prob": 0.6451
+    }
+  ],
+  "data_source": "REAL"
+}
